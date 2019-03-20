@@ -8,7 +8,7 @@
 		"build:electron": "cd electron && npm install",
 		"build:react": "cd react && npm run-script build && move build ../electron/build",
 		"build:prepare": "concurrently \"npm run-script build:electron\" \"npm run-script build:react\"",
-		"build": "npm run-script build:prepare && cd electron && electron-builder"
+		"build": "npm run-script build:prepare && cd electron && move index.js index.dev.js && move index.prod.js index.js && electron-builder && move index.js index.prod.js && move index.dev.js index.js "
 	},
 	"devDependencies": {
 		"concurrently": "^4.1.0"
