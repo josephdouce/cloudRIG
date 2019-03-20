@@ -1,6 +1,6 @@
 {
 	"name": "cloudrig-gui-builder",
-	"version": "0.0.5",
+	"version": "0.0.8",
 	"license": "MIT",
 	"scripts": {
 		"postinstall": "concurrently \"cd react && npm install\" \"cd electron && npm install\" ",
