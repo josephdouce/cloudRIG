@@ -6,7 +6,7 @@
 		"postinstall": "concurrently \"cd react && npm install\" \"cd electron && npm install\" ",
 		"start": "concurrently \"cd react && npm start\" \"cd electron && npm start\"",
 		"build:electron": "cd electron && npm install",
-		"build:react": "cd react && npm run-script build",
+		"build:react": "cd react && npm run-script build && move build ../electron/build",
 		"build:prepare": "concurrently \"npm run-script build:electron\" \"npm run-script build:react\"",
 		"build": "npm run-script build:prepare && cd electron && electron-builder"
 	},
