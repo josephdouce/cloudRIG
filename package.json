@@ -1,9 +1,8 @@
 {
     "scripts": {
-        "start": "cd gui && npm start",
-        "build": "cd gui && npm build",
-        "release": "cd gui && npm release",
-        "gui": "npm start",
+        "start": "cd gui && npm run start",
+        "win:build": "cd gui && npm run win:build",
+        "mac:build": "cd gui && npm run mac:build",
         "cli": "cd cli && node index"
     }
 }

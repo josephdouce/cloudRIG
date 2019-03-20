@@ -5,16 +5,15 @@
 	"scripts": {
 		"postinstall": "concurrently \"cd react && npm install\" \"cd electron && npm install\" ",
 		"start": "concurrently \"cd react && npm start\" \"cd electron && npm start\"",
-		
 		"win:build:electron": "cd electron && npm install",
-		"win:build:react": "cd react && npm run-script build && move build ../electron/build",
-		"win:build:prepare": "concurrently \"npm run-script build:electron\" \"npm run-script build:react\"",
-		"win:build:win": "npm run-script build:prepare && cd electron && move index.js index.dev.js && move index.prod.js index.js && electron-builder && move index.js index.prod.js && move index.dev.js index.js && rmdir /s /q build",
+		"win:build:react": "cd react && npm run build && move build ../electron/build",
+		"win:build:prepare": "concurrently \"npm run win:build:electron\" \"npm run win:build:react\"",
+		"win:build": "npm run win:build:prepare && cd electron && move index.js index.dev.js && move index.prod.js index.js && electron-builder && move index.js index.prod.js && move index.dev.js index.js && rmdir /s /q build",
 		
 		"mac:build:electron": "rm -rf .tmp-app && mkdir .tmp-app && rsync -av --progress electron/ .tmp-app --exclude node_modules && cd .tmp-app && npm install --only=production && rm dev.html && rm package.json.lock && rm -f .DS_STORE && mv -f index.prod.js index.js",
-		"mac:build:react": "rm -rf .tmp-react-build && mkdir .tmp-react-build && rsync -av --progress react/ .tmp-react-build --exclude node_modules && cd .tmp-react-build && npm install --only=production && npm build && cp -r build ../.tmp-app",
-		"mac:build:prepare": "concurrently \"npm run-script build:electron\" \"npm run-script build:react\" && cd .tmp-app && find . -name \".DS_Store\" -delete",
-		"mac:build": "npm run-script build:prepare && cd .tmp-app && electron-builder"
+		"mac:build:react": "rm -rf .tmp-react-build && mkdir .tmp-react-build && rsync -av --progress react/ .tmp-react-build --exclude node_modules && cd .tmp-react-build && npm install --only=production && npm run build && cp -r build ../.tmp-app",
+		"mac:build:prepare": "concurrently \"npm run mac:build:electron\" \"npm run mac:build:react\" && cd .tmp-app && find . -name \".DS_Store\" -delete",
+		"mac:build": "npm run mac:build:prepare && cd .tmp-app && electron-builder"
 	},
 	"devDependencies": {
 		"concurrently": "^4.1.0"
