@@ -5,6 +5,7 @@
 	"scripts": {
 		"postinstall": "concurrently \"cd react && npm install\" \"cd electron && npm install\" ",
 		"start": "concurrently \"cd react && npm start\" \"cd electron && npm start\"",
+		
 		"win:build:electron": "cd electron && npm install",
 		"win:build:react": "cd react && npm run build && move build ../electron/build",
 		"win:build:prepare": "concurrently \"npm run win:build:electron\" \"npm run win:build:react\"",
