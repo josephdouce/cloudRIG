@@ -30,12 +30,17 @@
 	},
 	"dependencies": {
 		"async": "^2.6.2",
-		"cloudriglib": "link:../../lib",
+		"aws-sdk": "^2.424.0",
+		"cloudriglib": "file:../../lib",
 		"electron-context-menu": "^0.11.0",
 		"electron-updater": "^4.0.6",
+		"jmespath": "^0.15.0",
 		"opn": "^5.4.0"
 	},
 	"devDependencies": {
 		"electron": "4.0.5"
+	},
+	"scripts": {
+		"start": "electron ."
 	}
 }

@@ -1,9 +1,9 @@
 {
     "scripts": {
-        "start": "cd gui && yarn start",
-        "build": "cd gui && yarn build",
-        "release": "cd gui && yarn release",
-        "gui": "yarn start",
+        "start": "cd gui && npm start",
+        "build": "cd gui && npm build",
+        "release": "cd gui && npm release",
+        "gui": "npm start",
         "cli": "cd cli && node index"
     }
 }
