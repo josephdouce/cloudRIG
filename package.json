@@ -1,5 +1,9 @@
 {
+	"devDependencies": {
+        "concurrently": "^4.1.0"
+    },
     "scripts": {
+        "postinstall": "concurrently \"cd gui && npm install\" \"cd cli && npm install\"",
         "start": "cd gui && npm run start",
         "win:build": "cd gui && npm run win:build",
         "mac:build": "cd gui && npm run mac:build",
