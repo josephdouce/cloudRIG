@@ -1,14 +1,15 @@
 # GUI
 
-You need yarn
-
 Set the app version number in electron/package.json
 
 ## Install & Run
 
-    yarn install
-    yarn start
+    npm install
+    nom run start
 
 ## Build
 
-    yarn build
+    npm run CURRENT_OS:build
+    npm run win:build
+    npm run mac:build
+
